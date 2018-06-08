@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">TwoFactsOneFake</string>
+
+    <string name="play_button">PLAY</string>
+    <string name="aboutButton">About</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_gameplay">Guess the wrong sentence</string>
+    <string name="controlTextView">Control text view</string>
+    <string name="timerTextView">Time:</string>
+    <string name="title_activity_end_game">Game Over</string>
+    <string name="gameOver">You ran out of time...</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="fact">Fact</string>
+    <string name="fake">Fake</string>
+    <string name="Suggestion">Suggestion/Feedback</string>
+
+    <string name="pointsWon">Points:</string>
+    <string name="highScore">High Score:</string>
+    <string name="zero">0</string>
+    <string name="StatsTextView">Stats</string>
+    <string name="AchievementsTextView">Achievements</string>
+    <string name="title_activity_stats">Stats</string>
+    <string name="correctAnswersTextView">Correct answers:</string>
+    <string name="wrongAnswersTextView">Wrong answers:</string>
+    <string name="gamesPlayedTextView">Total games played:</string>
+    <string name="correctAnswersPercentage">Correct %:</string>
+    <string name="helpsUsed">Helps used:</string>
+    <string name="exitGameTextView">Exit Game</string>
+    <string name="title_activity_exit_dialog_box">Exit</string>
+    <string name="wannaExit">Do you really want to exit ?</string>
+    <string name="backButton">Back</string>
+    <string name="newHighScore">NEW!</string>
+    <string name="soundSwitch">Sound</string>
+
+    <string name="feedbackDescription">Here you can send us your feedback, thoughts, suggestions and also some facts and fakes of yours
+        you\'d like to see in the next version!</string>
+    <string name="feedbackHintMessage">Enter your message here and it will be emailed to us.</string>
+
+    <string name="yesyes">Yes</string>
+    <string name="nono">No</string>
+    <string name="title_activity_achievements">Achievements</string>
+
+    <string name="achievementStreak">Streak</string>
+    <string name="descriptionStreak">Achieve a streak of 7 correct answers.</string>
+
+    <string name="achievementPlayGames">Player</string>
+    <string name="descriptionPlayGames">Play a total of 20 games.</string>
+
+    <string name="achievementScore">Score</string>
+    <string name="descriptionScore">Achieve a score of 25 points.</string>
+
+
+    <string name="achievementHelpsUsed">Helpful</string>
+    <string name="descriptionHelpsUsedBronze">Use 2 helps in one game.</string>
+    <string name="descriptionHelpsUsedSilver">Use 4 helps in one game.</string>
+    <string name="descriptionHelpsUsedGold">Use 6 helps in one game.</string>
+
+    <string name="achievementHelpless">Helpless</string>
+    <string name="descriptionHelplessBronze">Achieve a score of 10 points\n without using in-game help.</string>
+    <string name="descriptionHelplessSilver">Achieve a score of 20 points\n without using in-game help.</string>
+    <string name="descriptionHelplessGold">Achieve a score of 30 points\n without using in-game help.</string>
+
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_option">OptionActivity</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="about_section">Let\'s face it - studying is boring.\n\n
+
+No one likes to memorize tons of information and then just forget it all in a couple of days.
+What if there was a more fun way to learn COMPLETELY useless and a billion times more interesting stuff?
+Once you learn that Eiffel Tower was sold twice, or that the fastest MMA knockout of all time happened
+in only 2 seconds, you will have trouble EVER forgetting that.\n\n
+
+Well, we had the idea to make a game just like that. Educate yourself on various subjects,
+find out almost everything about almost everything and have fun while doing so.
+\'2Facts1Fake\' is not just a game, it\'s your way of becoming the annoying \'know-it-all\' guy,
+the always interesting \'did-you-know\' guy and ultimately the winner of \'Who wants to be a millionaire\'.\n\n
+
+It contains more than 1500 random facts, hand picked and thoroughly checked. More are added every day
+to our always growing database of knowledge, and we are proud to say that one of two developers who
+spent more time finding facts is now significantly smarter than the other one. We\'ll keep it a secret
+which one it is, but let\'s just say he also wrote the About section (and didn\'t let the other one read it).\n\n
+
+Anyway, the objective of the game is to click on one of 3 sentences, that you think is most likely to be fake.
+Some of the fake ones are simply exaggerated true facts, but some are pure fiction of the developers.
+That\'s it, pretty simple. To make it a little bit more challenging, we added the time constraint.
+Also on incorrect answer, you\'ll get -5 seconds, and +10 on correct answer.\n\n
+
+The core point of the game is not to have 1 million points, it\'s to learn and to be amazed by some of the facts.
+You will surely have a need to check some of those facts on the Internet after playing, and we strongly
+encourage that. We had so much fun while making the game, we literally annoyed our parents, friends and
+girlfriends with random facts we learned that day.\n\n
+
+The game was made by:
+	Milan Vucic - vucic94@yahoo.com
+	Nebojsa Urosevic - nebojsa94urosevic@gmail.com\n\n
+
+Game designer and a young perspective architect:
+	Vasilije Glavas - vasilijemg@yahoo.com\n\n
+
+Hope you enjoy the game, and if you do, rate it honestly. If you don\'t, please give us a feedback
+on how to make it better and more enjoyable. We\'re always open for suggestions of any kind,
+so feel free to send us an email with whatever questions you have.\n\n
+
+Greetings from the team \'2Facts1Fake\'.</string>
+    <string name="title_activity_feed_back">FeedBackActivity</string>
+    <string name="play">play</string>
+    <string name="about">about</string>
+    <string name="suggestion">suggestion</string>
+    <string name="title_activity_loading">LoadingActivity</string>
+</resources>
