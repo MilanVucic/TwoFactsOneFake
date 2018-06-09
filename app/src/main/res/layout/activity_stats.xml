@@ -40,7 +40,6 @@
                 android:text="@string/zero"
                 android:id="@+id/highScoreValueTextView"
                 android:layout_alignParentLeft="false"
-                android:layout_marginLeft="225dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_alignParentRight="true"
@@ -73,7 +72,6 @@
                 android:text="@string/zero"
                 android:id="@+id/correctAnswersValueTextView"
                 android:layout_alignParentLeft="false"
-                android:layout_marginLeft="331dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_alignParentRight="true" />
@@ -108,7 +106,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentLeft="false"
-                android:layout_marginLeft="315dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:textColor="#fff" />
@@ -138,7 +135,6 @@
                 android:text="@string/zero"
                 android:id="@+id/gamesPlayedTextView"
                 android:layout_alignParentLeft="false"
-                android:layout_marginLeft="396dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_alignParentBottom="false"
@@ -200,28 +196,11 @@
                 android:text="@string/zero"
                 android:id="@+id/helpsUsedTextView"
                 android:layout_alignParentLeft="false"
-                android:layout_marginLeft="419dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_alignParentRight="true"
                 android:textColor="#000" />
 
-        </RelativeLayout>
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/backButton"
-                android:id="@+id/backButton"
-                android:layout_alignParentTop="false"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="false" />
         </RelativeLayout>
 
     </LinearLayout>

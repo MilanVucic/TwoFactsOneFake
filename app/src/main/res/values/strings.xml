@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TwoFactsOneFake</string>
+    <string name="app_name">2 Facts 1 Fake</string>
 
     <string name="play_button">PLAY</string>
     <string name="aboutButton">About</string>
@@ -104,7 +104,7 @@ on how to make it better and more enjoyable. We\'re always open for suggestions 
 so feel free to send us an email with whatever questions you have.\n\n
 
 Greetings from the team \'2Facts1Fake\'.</string>
-    <string name="title_activity_feed_back">FeedBackActivity</string>
+    <string name="title_activity_feed_back">Feedback</string>
     <string name="play">play</string>
     <string name="about">about</string>
     <string name="suggestion">suggestion</string>

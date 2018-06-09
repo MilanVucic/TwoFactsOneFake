@@ -17,8 +17,7 @@
         android:text="@string/gameOver"
         android:id="@+id/gameOverTextView"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/highScoreTextView"
-        android:layout_toEndOf="@+id/highScoreTextView"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp" />
 
     <TextView

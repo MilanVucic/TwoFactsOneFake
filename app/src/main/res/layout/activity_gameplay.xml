@@ -222,7 +222,7 @@
                                 android:layout_height="55sp"
                                 android:id="@+id/tenSecondsButton"
                                 android:layout_weight="1"
-                                android:background="@drawable/plustensec" />
+                                android:background="@drawable/add_time_icon" />
 
                         </RelativeLayout>
 
@@ -242,7 +242,7 @@
                                 android:layout_height="55sp"
                                 android:id="@+id/fiftyButton"
                                 android:layout_weight="1"
-                                android:background="@drawable/threetotwohelp"
+                                android:background="@drawable/eliminate_1_answer"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentEnd="true" />
@@ -283,8 +283,9 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="New Button"
                     android:textAllCaps="false"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textSize="14sp"
                     android:background="@drawable/custom_button_gameplay"
                     android:id="@+id/buttonStatement1"
                     android:alpha="0.7"
@@ -300,8 +301,8 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="New Button"
-
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textSize="14sp"
                     android:textAllCaps="false"
                     android:id="@+id/buttonStatement2"
                     android:background="@drawable/custom_button_gameplay2"
@@ -319,7 +320,8 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="New Button"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:textSize="14sp"
                     android:textAllCaps="false"
                     android:id="@+id/buttonStatement3"
                     android:background="@drawable/custom_button_gameplay"

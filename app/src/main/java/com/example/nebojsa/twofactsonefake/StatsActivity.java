@@ -12,32 +12,19 @@ import android.widget.TextView;
 
 public class StatsActivity extends AppCompatActivity {
     private TextView highScoreValueTextView, correctAnswersTextView, wrongAnswersTextView, gamesPlayedTextView, correctAnswersPercentageTextView, helpsUsedTextView;
-    private Button backButton;
     private SharedPreferences prefs;
-    private static MediaPlayer buttonSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
-
-        backButton=(Button)findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonSound.start();
-                onBackPressed();
-            }
-        });
         highScoreValueTextView=(TextView)findViewById(R.id.highScoreValueTextView);
         correctAnswersTextView=(TextView)findViewById(R.id.correctAnswersValueTextView);
         wrongAnswersTextView=(TextView)findViewById(R.id.wrongAnswersValueTextView);
         gamesPlayedTextView=(TextView)findViewById(R.id.gamesPlayedTextView);
         correctAnswersPercentageTextView=(TextView)findViewById(R.id.correctAnswersPercentageTextView);
         helpsUsedTextView=(TextView)findViewById(R.id.helpsUsedTextView);
-
-        buttonSound = MediaPlayer.create(getApplicationContext(), R.raw.fiftysound);
 
         prefs = this.getSharedPreferences("highScore", Context.MODE_PRIVATE);
         highScoreValueTextView.setText(""+prefs.getInt("highScore", 0));

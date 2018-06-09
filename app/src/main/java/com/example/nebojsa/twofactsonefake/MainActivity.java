@@ -1,15 +1,8 @@
 package com.example.nebojsa.twofactsonefake;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,9 +13,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
     private static MediaPlayer buttonSound;
@@ -74,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonSound.start();
-                Intent intent = new Intent("com.example.nebojsa.twofactsonefake.StatsActivity");
+                Intent intent = new Intent(MainActivity.this, StatsActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonSound.start();
-                Intent intent = new Intent("com.example.nebojsa.twofactsonefake.Gameplay");
+                Intent intent = new Intent(MainActivity.this, Gameplay.class);
                 startActivity(intent);
             }
         });
@@ -92,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonSound.start();
-                Intent intent = new Intent("com.example.nebojsa.twofactsonefake.AchievementsActivity");
+                Intent intent = new Intent(MainActivity.this, AchievementsActivity.class);
                 startActivity(intent);
             }
         });
@@ -101,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonSound.start();
-                Intent intent = new Intent("com.example.nebojsa.twofactsonefake.AboutActivity");
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
             }
         });
@@ -110,32 +101,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonSound.start();
-                Intent intent = new Intent("com.example.nebojsa.twofactsonefake.FeedBackActivity");
+                Intent intent = new Intent(MainActivity.this, FeedBackActivity.class);
                 startActivity(intent);
             }
         });
-    }
-
-    private void exitGame() {
-        buttonSound.start();
-        AlertDialog.Builder ab = new AlertDialog.Builder(MainActivity.this);
-        ab.setTitle("Exit");
-        ab.setMessage("Are you sure you want to exit?");
-        ab.setPositiveButton(R.string.yesyes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("EXIT", true);
-                startActivity(intent);
-            }
-        });
-        ab.setNegativeButton(R.string.nono, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        })
-                .setIcon(android.R.drawable.ic_dialog_alert);
-        ab.show();
     }
 
     @Override
@@ -145,11 +114,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("tokenNumber", tokenNumber);
         editor.apply();
-    }
-
-    @Override
-    public void onBackPressed() {
-        exitGame();
     }
 
     private void addAds() {
