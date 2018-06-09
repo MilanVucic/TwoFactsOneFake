@@ -6,7 +6,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
     android:id="@+id/activity_main"
-    android:background="#2390ce">
+    android:background="@color/home_background_color">
 
 
     <LinearLayout
@@ -32,8 +32,8 @@
                     android:layout_height="30dp"
                     android:id="@+id/tokenImageView"
                     android:src="@drawable/goldtoken"
-                    android:layout_toLeftOf="@id/tokenNumberTextView"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"/>
 
                 <TextView

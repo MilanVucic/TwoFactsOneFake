@@ -62,48 +62,30 @@
     <string name="descriptionHelplessGold">Achieve a score of 30 points\n without using in-game help.</string>
 
     <string name="title_activity_about">AboutActivity</string>
-    <string name="title_activity_option">OptionActivity</string>
 
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="about_section">Let\'s face it - studying is boring.\n\n
+    <string name="about_section">This game was made about 3 years ago by me and my friend. At that time we didn\'t know Android
+        and this app was our "learning" project. When it was done, we got an internship thanks to it, so all that work wasn\'t in vain.
+        After that, we started learning other languages and frameworks and the game was forgotten for a long time. Having had a bit of spare time,
+        I decided to bring it back to life and upload it, since even though it looks god awful, it contains some pretty interesting questions.
+        \n
+        \n
+        It is quite obvious at this stage that the game needs a LOT of work on it, but both my friend and I didn\'t have time to completely redo it
+        from scratch, so I just fixed it up a little bit so it\'s playable, and if it has enough downloads it will get a full revamp soon.
 
-No one likes to memorize tons of information and then just forget it all in a couple of days.
-What if there was a more fun way to learn COMPLETELY useless and a billion times more interesting stuff?
-Once you learn that Eiffel Tower was sold twice, or that the fastest MMA knockout of all time happened
-in only 2 seconds, you will have trouble EVER forgetting that.\n\n
+        \n\n
 
-Well, we had the idea to make a game just like that. Educate yourself on various subjects,
-find out almost everything about almost everything and have fun while doing so.
-\'2Facts1Fake\' is not just a game, it\'s your way of becoming the annoying \'know-it-all\' guy,
-the always interesting \'did-you-know\' guy and ultimately the winner of \'Who wants to be a millionaire\'.\n\n
-
-It contains more than 1500 random facts, hand picked and thoroughly checked. More are added every day
-to our always growing database of knowledge, and we are proud to say that one of two developers who
-spent more time finding facts is now significantly smarter than the other one. We\'ll keep it a secret
-which one it is, but let\'s just say he also wrote the About section (and didn\'t let the other one read it).\n\n
-
-Anyway, the objective of the game is to click on one of 3 sentences, that you think is most likely to be fake.
-Some of the fake ones are simply exaggerated true facts, but some are pure fiction of the developers.
-That\'s it, pretty simple. To make it a little bit more challenging, we added the time constraint.
-Also on incorrect answer, you\'ll get -5 seconds, and +10 on correct answer.\n\n
-
-The core point of the game is not to have 1 million points, it\'s to learn and to be amazed by some of the facts.
-You will surely have a need to check some of those facts on the Internet after playing, and we strongly
-encourage that. We had so much fun while making the game, we literally annoyed our parents, friends and
-girlfriends with random facts we learned that day.\n\n
+        Please do not hesitate to contact us with your suggestions.
 
 The game was made by:
 	Milan Vucic - vucic94@yahoo.com
 	Nebojsa Urosevic - nebojsa94urosevic@gmail.com\n\n
 
-Game designer and a young perspective architect:
-	Vasilije Glavas - vasilijemg@yahoo.com\n\n
-
 Hope you enjoy the game, and if you do, rate it honestly. If you don\'t, please give us a feedback
 on how to make it better and more enjoyable. We\'re always open for suggestions of any kind,
 so feel free to send us an email with whatever questions you have.\n\n
 
-Greetings from the team \'2Facts1Fake\'.</string>
+Greetings from the team \'2 Facts 1 Fake\'.</string>
     <string name="title_activity_feed_back">Feedback</string>
     <string name="play">play</string>
     <string name="about">about</string>
