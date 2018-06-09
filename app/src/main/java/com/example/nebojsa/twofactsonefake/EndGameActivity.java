@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 
 public class EndGameActivity extends AppCompatActivity {
@@ -109,7 +110,10 @@ public class EndGameActivity extends AppCompatActivity {
     }
     private void addAds()
     {
-        AdView mAdView = (AdView) findViewById(R.id.adView);
+        MobileAds.initialize(this,
+                Constants.AD_UNIT_END_GAME);
+
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
