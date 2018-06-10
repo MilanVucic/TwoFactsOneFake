@@ -4,7 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class AchievementsActivity extends AppCompatActivity {
@@ -12,22 +16,41 @@ public class AchievementsActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private ImageView  imageView1,imageView2,helplessImageView,imageView4,imageView5,imageView6,imageView7,imageView8;
     private TextView streakTextView, scoreTextView, playerTextView, helpfulTextView, helplessTextView;
+    private EditText passwordEditText;
+    private Button confirmButton;
+    private LinearLayout hiddenLayout;
+    private int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievements);
-        imageView1 = (ImageView) findViewById(R.id.imageView1);
-        imageView2 = (ImageView) findViewById(R.id.imageView2);
-        imageView5 = (ImageView) findViewById(R.id.imageView5);
-        imageView8 = (ImageView) findViewById(R.id.imageView8);
-        helplessImageView = (ImageView) findViewById(R.id.helplessImageView);
+        imageView1 = findViewById(R.id.imageView1);
+        imageView2 = findViewById(R.id.imageView2);
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hiddenLayout();
+            }
+        });
+        imageView5 = findViewById(R.id.imageView5);
+        imageView8 = findViewById(R.id.imageView8);
+        helplessImageView = findViewById(R.id.helplessImageView);
+        passwordEditText= findViewById(R.id.passwordEditText);
+        confirmButton= findViewById(R.id.confirmButton);
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkPassword();
+            }
+        });
+        hiddenLayout= findViewById(R.id.hiddenLayout);
 
-        streakTextView = (TextView) findViewById(R.id.correctAnswerTextView);
-        scoreTextView = (TextView) findViewById(R.id.scoreTextView);
-        helpfulTextView = (TextView) findViewById(R.id.helpfulTextView);
-        helplessTextView = (TextView) findViewById(R.id.helplessTextView);
-        playerTextView = (TextView) findViewById(R.id.playerTextView);
+        streakTextView = findViewById(R.id.correctAnswerTextView);
+        scoreTextView = findViewById(R.id.scoreTextView);
+        helpfulTextView = findViewById(R.id.helpfulTextView);
+        helplessTextView = findViewById(R.id.helplessTextView);
+        playerTextView = findViewById(R.id.playerTextView);
         prefs = this.getSharedPreferences("Achievements", Context.MODE_PRIVATE);
 
         if (prefs.getBoolean("achievementStreakGold",false))
@@ -128,6 +151,21 @@ public class AchievementsActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void checkPassword() {
+        String password = passwordEditText.getText().toString();
+        if("0000a".equalsIgnoreCase(password)){
+            findViewById(R.id.isi).setVisibility(View.VISIBLE);
+        } else {
+            passwordEditText.setError("Pogresna sifra :)");
+        }
+    }
+
+    private void hiddenLayout() {
+        if(++counter >= 10){
+            hiddenLayout.setVisibility(View.VISIBLE);
+        }
     }
 
 }

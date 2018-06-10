@@ -207,7 +207,34 @@
                     android:background="@drawable/lock" />
 
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/hiddenLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="textPassword"
+                    android:hint="Unesi svoju sifru"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/confirmButton"
+                    android:text="Confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/isi"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:layout_gravity="center"
+                android:textColor="#ff00ff"
+                android:text="Volim te Isi :)"/>
         </LinearLayout>
     </ScrollView>
 
