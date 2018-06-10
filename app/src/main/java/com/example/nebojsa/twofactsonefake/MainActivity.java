@@ -17,7 +17,6 @@ import com.google.android.gms.ads.MobileAds;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    private static MediaPlayer buttonSound;
     SharedPreferences prefs;
     private ImageButton playButton, statsButton, achievementsButton, aboutButton, suggestionButton;
     private TextView tokenNumberTextView;
@@ -28,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tokenNumberTextView = (TextView) findViewById(R.id.tokenNumberTextView);
-        buttonSound = MediaPlayer.create(getApplicationContext(), R.raw.correctsound);
         try {
             addOnClickListeners();
         } catch (IOException e) {
@@ -65,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonSound.start();
                 Intent intent = new Intent(MainActivity.this, StatsActivity.class);
                 startActivity(intent);
             }
@@ -74,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonSound.start();
                 Intent intent = new Intent(MainActivity.this, Gameplay.class);
                 startActivity(intent);
             }
@@ -83,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         achievementsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonSound.start();
                 Intent intent = new Intent(MainActivity.this, AchievementsActivity.class);
                 startActivity(intent);
             }
@@ -92,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonSound.start();
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
             }
@@ -101,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         suggestionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonSound.start();
                 Intent intent = new Intent(MainActivity.this, FeedBackActivity.class);
                 startActivity(intent);
             }

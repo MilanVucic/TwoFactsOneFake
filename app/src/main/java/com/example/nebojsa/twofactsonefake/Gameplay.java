@@ -25,10 +25,9 @@ import java.util.Random;
 
 public class Gameplay extends AppCompatActivity {
 
-    private static MediaPlayer correctSound, wrongSound, fiftySound, tenSecondsSound;
     public CountDownTimer tempTimer;
     public Toast toast;
-    public LinearLayout linear, pointsLayout, clockLinearLayout;
+    public LinearLayout linear;
     int pointsWon;
     Button[] buttons = new Button[3];
     TextView timerTextView, tokenTextView, pointsTextView;
@@ -39,9 +38,7 @@ public class Gameplay extends AppCompatActivity {
     Random random;
     int levelCounter, helpsUsed;
     ProgressBar progressBar;
-    ImageView mainCircleImageView, difficultyImageView, clockImageView;
-    Animation animation;
-    private int highScore;
+    ImageView mainCircleImageView, difficultyImageView;
     private int randomFact1, randomFact2, randomFake, currentStreak, randomDifficultyGenerator, levelDifficulty;
     private SharedPreferences prefs;
     private ImageButton tenSecondsImageButton, fiftyImageButton;
@@ -84,11 +81,6 @@ public class Gameplay extends AppCompatActivity {
 
         prefs = this.getSharedPreferences("helpsUsed", Context.MODE_PRIVATE);
         helpsUsed = prefs.getInt("helpsUsed", 0);
-
-        wrongSound = MediaPlayer.create(getApplicationContext(), R.raw.wronganswer);
-        correctSound = MediaPlayer.create(getApplicationContext(), R.raw.correctsound);
-        tenSecondsSound = MediaPlayer.create(getApplicationContext(), R.raw.tenseconds);
-        fiftySound = MediaPlayer.create(getApplicationContext(), R.raw.fiftysound);
 
         pointsWon = 0;
         levelCounter = 1;
@@ -189,28 +181,6 @@ public class Gameplay extends AppCompatActivity {
     }
 
     private void onCorrect() {
-//        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(pointUpdate, "alpha",  1f, 0f);
-//        fadeOut.setDuration(1500);
-//        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(pointUpdate, "alpha", 0f, 1f);
-//        fadeIn.setDuration(200);
-//
-//        final AnimatorSet mAnimationSet = new AnimatorSet();
-//
-//        mAnimationSet.play(fadeOut).after(fadeIn);
-//        mAnimationSet.start();
-//
-//        animation = new TranslateAnimation(TranslateAnimation.RELATIVE_TO_PARENT,0.0f,
-//                TranslateAnimation.RELATIVE_TO_PARENT,0.0f,
-//                TranslateAnimation.RELATIVE_TO_PARENT,0.7f,
-//                TranslateAnimation.RELATIVE_TO_PARENT,0.0f);
-//        animation.setDuration(1500);
-//        animation.setFillAfter(true);
-//        animation.setRepeatCount(-1);
-//        animation.setRepeatMode(Animation.REVERSE);
-//        pointUpdate.startAnimation(animation);
-
-
-        correctSound.start();
         currentStreak++;
         levelCounter++;
         if (currentStreak >= 3 && currentStreak % 3 == 0)
@@ -229,7 +199,6 @@ public class Gameplay extends AppCompatActivity {
     }
 
     private void onWrong() {
-        wrongSound.start();
         currentStreak = 0;
         disableAll();
         makeButtonsInvisible();
@@ -415,7 +384,6 @@ public class Gameplay extends AppCompatActivity {
                     timer.cancel();
                     timer = null;
                     createCountDownTimer(10000);
-                    tenSecondsSound.start();
                 } else createNotEnoughTokensToast();
             }
         });
@@ -432,7 +400,6 @@ public class Gameplay extends AppCompatActivity {
                     while ((RandomFact = random.nextInt(2)) == RandomAnswer) ;
                     buttons[RandomFact].setEnabled(false);
                     buttons[RandomFact].setVisibility(View.INVISIBLE);
-                    fiftySound.start();
                 } else createNotEnoughTokensToast();
             }
         });

@@ -6,7 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.nebojsa.twofactsonefake.StatsActivity"
     android:id="@+id/pointsWonTextView"
-    android:background="#eee">
+    android:background="@color/home_background_color">
 
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#000">
+            android:background="@color/main_light_blue_color">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
                 android:layout_marginLeft="0dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
-                android:textColor="#fff" />
+                android:textColor="@color/home_background_color" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,8 +42,9 @@
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
+                android:layout_marginRight="4dp"
                 android:layout_alignParentRight="true"
-                android:textColor="#fff" />
+                android:textColor="@color/home_background_color" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -51,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#fff">
+            android:background="@color/home_background_color">
 
 
             <TextView
@@ -62,6 +63,7 @@
                 android:id="@+id/correctAnswerTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="0dp"
+                android:textColor="@color/main_light_blue_color"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp" />
 
@@ -74,6 +76,8 @@
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
+                android:layout_marginRight="4dp"
+                android:textColor="@color/main_light_blue_color"
                 android:layout_alignParentRight="true" />
 
         </RelativeLayout>
@@ -82,7 +86,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000">
+            android:background="@color/main_light_blue_color">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,7 +98,7 @@
                 android:layout_marginLeft="0dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
-                android:textColor="#fff" />
+                android:textColor="@color/home_background_color" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -108,14 +112,15 @@
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
-                android:textColor="#fff" />
+                android:layout_marginRight="4dp"
+                android:textColor="@color/home_background_color" />
         </RelativeLayout>
 
         <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fff">
+            android:background="@color/home_background_color">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -125,6 +130,7 @@
                 android:id="@+id/textView"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="0dp"
+                android:textColor="@color/main_light_blue_color"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp" />
 
@@ -135,8 +141,10 @@
                 android:text="@string/zero"
                 android:id="@+id/gamesPlayedTextView"
                 android:layout_alignParentLeft="false"
+                android:textColor="@color/main_light_blue_color"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
+                android:layout_marginRight="4dp"
                 android:layout_alignParentBottom="false"
                 android:layout_alignParentRight="true" />
 
@@ -146,7 +154,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000">
+            android:background="@color/main_light_blue_color">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -158,7 +166,7 @@
                 android:layout_marginLeft="0dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
-                android:textColor="#FFF" />
+                android:textColor="@color/home_background_color" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -168,7 +176,8 @@
                 android:id="@+id/correctAnswersPercentageTextView"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:textColor="#fff" />
+                android:layout_marginRight="4dp"
+                android:textColor="@color/home_background_color" />
 
         </RelativeLayout>
 
@@ -176,7 +185,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fff">
+            android:background="@color/home_background_color">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -187,6 +196,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="0dp"
                 android:layout_alignParentTop="true"
+                android:textColor="@color/main_light_blue_color"
                 android:layout_marginTop="0dp" />
 
             <TextView
@@ -199,7 +209,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_alignParentRight="true"
-                android:textColor="#000" />
+                android:layout_marginRight="4dp"
+                android:textColor="@color/main_light_blue_color" />
 
         </RelativeLayout>
 
