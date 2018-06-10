@@ -5,14 +5,13 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,7 +20,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nebojsa.twofactsonefake.utils.Constants;
+import com.example.nebojsa.twofactsonefake.utils.GuideHelper;
+
 import java.util.Random;
+
+import uk.co.deanwild.materialshowcaseview.IShowcaseListener;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
 
 public class Gameplay extends AppCompatActivity {
 
@@ -30,10 +35,9 @@ public class Gameplay extends AppCompatActivity {
     public LinearLayout linear;
     int pointsWon;
     Button[] buttons = new Button[3];
-    TextView timerTextView, tokenTextView, pointsTextView;
+    TextView timerTextView, tokenTextView, pointsTextView, newPointsTextView;
     long timeRemaining;
     int RandomAnswer, helpsUsedThisGame;
-    Game game = new Game();
     CountDownTimer timer;
     Random random;
     int levelCounter, helpsUsed;
@@ -44,6 +48,7 @@ public class Gameplay extends AppCompatActivity {
     private ImageButton tenSecondsImageButton, fiftyImageButton;
     private int[] noEasyFactsRepeat, noMediumFactsRepeat, noHardFactsRepeat, noEasyFakesRepeat, noMediumFakesRepeat, noHardFakesRepeat;
     private boolean randomfact1Check, randomfact2Check, randomfake, randomfactCheck, randomfakeCheck, noTime = false;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,7 @@ public class Gameplay extends AppCompatActivity {
         mainCircleImageView = (ImageView) findViewById(R.id.mainCircleImageView);
         difficultyImageView = (ImageView) findViewById(R.id.difficultyImageView);
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
+        newPointsTextView = (TextView) findViewById(R.id.newPointsTextView);
 
         currentStreak = 0;
         helpsUsedThisGame = 0;
@@ -88,11 +94,136 @@ public class Gameplay extends AppCompatActivity {
         prefs = this.getSharedPreferences("tokenNumber", Context.MODE_PRIVATE);
         tokenTextView.setText("" + prefs.getInt("tokenNumber", 300));
         timeRemaining = Constants.STARTING_TIME_MILLIS;
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean guidesShown = sharedPreferences.getBoolean(Constants.GUIDES_SHOWN, false);
+        if(guidesShown){
+            startTheGame();
+        } else {
+            displayGuides();
+        }
+    }
+
+    private void displayGuides() {
+        goalOfTheGameGuide();
+    }
+
+    private void goalOfTheGameGuide() {
+        GuideHelper.displayGuide(this, findViewById(R.id.guessWrongSentence), getString(R.string.goal_of_the_game_guide),
+        new IShowcaseListener() {
+            @Override
+            public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
+
+            }
+
+            @Override
+            public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                timeGuide();
+            }
+        });
+    }
+
+    private void timeGuide() {
+        GuideHelper.displayGuide(this, progressBar, getString(R.string.time_guide),
+                new IShowcaseListener() {
+                    @Override
+                    public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                        tokensGuide();
+                    }
+                });
+    }
+
+    private void tokensGuide() {
+        GuideHelper.displayGuide(this, tokenTextView, getString(R.string.tokens_guide),
+                new IShowcaseListener() {
+                    @Override
+                    public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                        additionalTimeGuide();
+                    }
+                });
+    }
+
+    private void additionalTimeGuide() {
+        GuideHelper.displayGuide(this, tenSecondsImageButton, getString(R.string.ten_sec_guide),
+                new IShowcaseListener() {
+                    @Override
+                    public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                        removeOneAnswerGuide();
+                    }
+                });
+    }
+
+    private void removeOneAnswerGuide() {
+        GuideHelper.displayGuide(this, fiftyImageButton, getString(R.string.remove_one_guide),
+                new IShowcaseListener() {
+                    @Override
+                    public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                        difficultyGuide();
+                    }
+                });
+    }
+
+    private void difficultyGuide() {
+        GuideHelper.displayGuide(this, difficultyImageView, getString(R.string.difficulty_guide),
+                new IShowcaseListener() {
+                    @Override
+                    public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                        pointsGuide();
+                    }
+                });
+    }
+
+    private void pointsGuide() {
+        GuideHelper.displayGuide(this, pointsTextView, getString(R.string.points_guide),
+                new IShowcaseListener() {
+                    @Override
+                    public void onShowcaseDisplayed(MaterialShowcaseView materialShowcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseDismissed(MaterialShowcaseView materialShowcaseView) {
+                        startTheGame();
+                        guidesShown();
+                    }
+                });
+    }
+
+    private void guidesShown() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(Constants.GUIDES_SHOWN, true);
+    }
+
+    private void startTheGame() {
         createCountDownTimer(0);
-        if (!noTime)
+        if (!noTime) {
             generateNewLevel();
+        }
         addOnClickListeners();
-        //setLayouts();
     }
 
     private void generateNewLevel() {
@@ -183,14 +314,16 @@ public class Gameplay extends AppCompatActivity {
     private void onCorrect() {
         currentStreak++;
         levelCounter++;
-        if (currentStreak >= 3 && currentStreak % 3 == 0)
-            pointsWon += 5;
-        pointsWon += 2;
+        int pointsForThisOne = 0;
+        if (currentStreak >= 3 && currentStreak % 3 == 0) {
+            pointsForThisOne += Constants.STREAK_BONUS_POINTS;
+        }
+        pointsForThisOne += Constants.CORRECT_ANSWER_POINTS;
+        updatePoints(pointsForThisOne);
         timer.cancel();
         timer = null;
         createCountDownTimer(10000);
         generateNewLevel();
-        pointsTextView.setText("" + pointsWon);
         prefs = this.getSharedPreferences("correctAnswers", Context.MODE_PRIVATE);
         int correctAnswer = prefs.getInt("correctAnswers", 0);
         SharedPreferences.Editor editor = prefs.edit();
@@ -198,36 +331,43 @@ public class Gameplay extends AppCompatActivity {
         editor.apply();
     }
 
+    private void updatePoints(int points) {
+        pointsWon += points;
+        if(pointsWon < 0){
+            pointsWon = 0;
+        }
+        pointsTextView.setText("" + pointsWon);
+        displayPointsWon(points);
+    }
+
+    private void displayPointsWon(int points) {
+        String text = points > 0 ? "+" + points : ""+points;
+        newPointsTextView.setAlpha(1f);
+        newPointsTextView.setText(text);
+        if(points > 0){
+            newPointsTextView.setTextColor(getResources().getColor(android.R.color.holo_green_light));
+        } else {
+            newPointsTextView.setTextColor(getResources().getColor(android.R.color.holo_red_light));
+        }
+        newPointsTextView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                newPointsTextView.animate()
+                        .alpha(0f)
+                        .setDuration(Constants.POINTS_FADE_OUT_DURATION)
+                        .start();
+            }
+        }, 2000);
+
+    }
+
     private void onWrong() {
         currentStreak = 0;
         disableAll();
         makeButtonsInvisible();
         levelCounter++;
-        if (pointsWon - 1 < 0)
-            pointsWon = 0;
-//        else
-//        {
-//            ObjectAnimator fadeOut = ObjectAnimator.ofFloat(pointUpdate, "alpha",  1f, 0f);
-//            fadeOut.setDuration(1500);
-//            ObjectAnimator fadeIn = ObjectAnimator.ofFloat(pointUpdate, "alpha", 0f, 1f);
-//            fadeIn.setDuration(200);
-//
-//            final AnimatorSet mAnimationSet = new AnimatorSet();
-//
-//            mAnimationSet.play(fadeOut).after(fadeIn);
-//            mAnimationSet.start();
-//
-//            animation = new TranslateAnimation(TranslateAnimation.RELATIVE_TO_PARENT,0.0f,
-//                    TranslateAnimation.RELATIVE_TO_PARENT,0.0f,
-//                    TranslateAnimation.RELATIVE_TO_PARENT,0.0f,
-//                    TranslateAnimation.RELATIVE_TO_PARENT,0.7f);
-//            animation.setDuration(1500);
-//            animation.setFillAfter(true);
-//            animation.setRepeatCount(-1);
-//            animation.setRepeatMode(Animation.REVERSE);
-//            pointUpdate.startAnimation(animation);
-//            pointsWon -= 1;
-//        }
+        updatePoints(Constants.WRONG_ANSWER_POINTS);
+
         timer.cancel();
         timer = null;
 
@@ -240,7 +380,6 @@ public class Gameplay extends AppCompatActivity {
         createToast();
         if (timeRemaining < 5000) {
             noTime = true;
-            Log.e("Usao", "");
         }
         tempTimer = new CountDownTimer(3500, 1000) {
             @Override
@@ -251,7 +390,6 @@ public class Gameplay extends AppCompatActivity {
             @Override
             public void onFinish() {
                 createCountDownTimer(-5000);
-                pointsTextView.setText("" + pointsWon);
                 if (!noTime)
                     generateNewLevel();
             }
@@ -376,7 +514,7 @@ public class Gameplay extends AppCompatActivity {
         tenSecondsImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (updateTokens(50)) {
+                if (updateTokens(Constants.TEN_SEC_HELP_COST)) {
                     tenSecondsImageButton.setEnabled(false);
                     cooldownTimer();
                     updateHelpsUsed();
@@ -390,7 +528,7 @@ public class Gameplay extends AppCompatActivity {
         fiftyImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (updateTokens(70)) {
+                if (updateTokens(Constants.REMOVE_ONE_HELP_COST)) {
                     fiftyImageButton.setEnabled(false);
                     threeToOneFadeOut();
                     updateHelpsUsed();

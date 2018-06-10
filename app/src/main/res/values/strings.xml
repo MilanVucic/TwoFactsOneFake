@@ -88,4 +88,11 @@ Greetings from the team \'2 Facts 1 Fake\'.</string>
     <string name="suggestion">suggestion</string>
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="tokensWon">Tokens won:</string>
+    <string name="goal_of_the_game_guide">The goal of the game is to guess which of the 3 given statements is FALSE. So read carefully, and select the one you think is not correct.</string>
+    <string name="time_guide">You start off with 50 seconds, and for each correct answer, you gain 10 seconds, but for each mistake, you lose 5.</string>
+    <string name="tokens_guide">You have these tokens that you can use for 2 different types of in-game help. Also, tokens are awarded at the end of each game. You get 3 times the number of points you won in that game.</string>
+    <string name="ten_sec_guide">This adds another 10 seconds to your time and costs 40 tokens.</string>
+    <string name="remove_one_guide">This randomly removes one of the answers and costs 70 tokens.</string>
+    <string name="difficulty_guide">This is the difficulty of the current question.</string>
+    <string name="points_guide">Finally, we have points. Each correct answer is worth 2 points, wrong one takes away 1 point and answering 3 questions correctly in a row brings a bonus of 5 points. Let\'s get started!</string>
 </resources>

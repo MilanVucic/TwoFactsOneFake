@@ -2,4 +2,5 @@
 <resources>
     <color name="home_background_color">#002EA7</color>
     <color name="main_light_blue_color">#ACCBE8</color>
+    <color name="guides_color">#af0158</color>
 </resources>
