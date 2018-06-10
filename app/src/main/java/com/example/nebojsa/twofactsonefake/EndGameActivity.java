@@ -3,6 +3,8 @@ package com.example.nebojsa.twofactsonefake;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,21 +19,26 @@ import com.google.android.gms.ads.MobileAds;
 
 public class EndGameActivity extends AppCompatActivity {
 
-    private TextView pointsWonTextView,highScoreTextView,newHighScoreTextView;
-    private Button playAgainButton, mainMenuButton;
+    private TextView pointsWonTextView,highScoreTextView,newHighScoreTextView,tokensWonTextView, gameOverTextView, bonusTextView;
+    private Button playAgainButton, mainMenuButton, bonusButton;
     private int highScore;
     private int pointsWon, gamesPlayed, helpsUsed;
     private static SharedPreferences prefs;
+    private boolean indicator = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
-        newHighScoreTextView=(TextView)findViewById(R.id.newHighScoreTextView);
-        pointsWonTextView=(TextView)findViewById(R.id.pointsWonTextView);
-        highScoreTextView=(TextView)findViewById(R.id.highScoreTextView);
-        playAgainButton=(Button)findViewById(R.id.playAgainButton);
-        mainMenuButton=(Button)findViewById(R.id.mainMenuButton);
+        gameOverTextView= findViewById(R.id.gameOverTextView);
+        tokensWonTextView= findViewById(R.id.tokensWonTextView);
+        bonusTextView= findViewById(R.id.bonusTextView);
+        newHighScoreTextView= findViewById(R.id.newHighScoreTextView);
+        pointsWonTextView= findViewById(R.id.pointsWonTextView);
+        highScoreTextView= findViewById(R.id.highScoreTextView);
+        playAgainButton= findViewById(R.id.playAgainButton);
+        mainMenuButton= findViewById(R.id.mainMenuButton);
+        bonusButton= findViewById(R.id.bonusButton);
 
         SharedPreferences prefs = this.getSharedPreferences("highScore", Context.MODE_PRIVATE);
         highScore = prefs.getInt("highScore", 0);
@@ -50,15 +57,20 @@ public class EndGameActivity extends AppCompatActivity {
         editor.apply();
 
         AddOnClickListeners();
-        addTokens();
+        addTokens(pointsWon * 3);
+        tokensWonTextView.setText(tokensWonTextView.getText() + " " + pointsWon * 3);
         addAds();
-        prefs = this.getSharedPreferences("Achievements", Context.MODE_PRIVATE);
-        Log.e("Usao",""+helpsUsed+" "+pointsWon+" "+!prefs.getBoolean("achievementHelplessBronze", false));
         checkAchievements();
     }
 
     private void AddOnClickListeners()
     {
+        gameOverTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                indicator = true;
+            }
+        });
         playAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +85,46 @@ public class EndGameActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        mainMenuButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if(indicator) {
+                    showBonusButton();
+                }
+                return true;
+            }
+        });
+    }
+
+    private void showBonusButton() {
+        bonusButton.setVisibility(View.VISIBLE);
+        bonusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                giveBonus();
+            }
+        });
+    }
+
+    private void giveBonus() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean alreadyGotBonus = sharedPreferences.getBoolean(Constants.GOT_BONUS, false);
+        if(!alreadyGotBonus) {
+            addTokens(Constants.BONUS_TOKENS);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(Constants.GOT_BONUS, true);
+            editor.apply();
+        } else {
+            bonusTextView.setText("Ne valja preterivati jebiga");
+        }
+
+        bonusTextView.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bonusTextView.setVisibility(View.GONE);
+            }
+        }, 2000);
     }
 
     private boolean updateHighScore()
@@ -83,7 +135,7 @@ public class EndGameActivity extends AppCompatActivity {
             prefs = this.getSharedPreferences("highScore", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putInt("highScore", highScore);
-            editor.commit();
+            editor.apply();
             return true;
         }
         return false;
@@ -95,18 +147,18 @@ public class EndGameActivity extends AppCompatActivity {
         prefs = this.getSharedPreferences("highScore", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("highScore", highScore);
-        editor.commit();
+        editor.apply();
 
     }
-    private void addTokens()
+    private void addTokens(int tokensToAdd)
     {
         prefs = this.getSharedPreferences("tokenNumber", Context.MODE_PRIVATE);
         int tokenNumber = prefs.getInt("tokenNumber", 0);
-        tokenNumber+=(pointsWon*3);
+        tokenNumber+= tokensToAdd;
 
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("tokenNumber", tokenNumber);
-        editor.commit();
+        editor.apply();
     }
     private void addAds()
     {

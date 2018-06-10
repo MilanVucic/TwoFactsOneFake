@@ -87,4 +87,5 @@ Greetings from the team \'2 Facts 1 Fake\'.</string>
     <string name="about">about</string>
     <string name="suggestion">suggestion</string>
     <string name="title_activity_loading">LoadingActivity</string>
+    <string name="tokensWon">Tokens won:</string>
 </resources>

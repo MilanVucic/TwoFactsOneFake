@@ -87,7 +87,7 @@ public class Gameplay extends AppCompatActivity {
 
         prefs = this.getSharedPreferences("tokenNumber", Context.MODE_PRIVATE);
         tokenTextView.setText("" + prefs.getInt("tokenNumber", 300));
-        timeRemaining = 50000;
+        timeRemaining = Constants.STARTING_TIME_MILLIS;
         createCountDownTimer(0);
         if (!noTime)
             generateNewLevel();
