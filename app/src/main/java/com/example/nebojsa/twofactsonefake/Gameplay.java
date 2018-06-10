@@ -216,6 +216,7 @@ public class Gameplay extends AppCompatActivity {
     private void guidesShown() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(Constants.GUIDES_SHOWN, true);
+        editor.apply();
     }
 
     private void startTheGame() {
